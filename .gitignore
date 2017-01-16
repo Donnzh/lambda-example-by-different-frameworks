@@ -8,4 +8,5 @@ claudia
 
 **/npm-debug.log
 **/.npmignore
+.eslintrc.js
 .DS_Store
