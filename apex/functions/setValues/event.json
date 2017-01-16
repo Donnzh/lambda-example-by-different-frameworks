@@ -1,0 +1,4 @@
+{
+  "valueForRedis": "aaa",
+	"valueForPostgres": "bbb"
+}

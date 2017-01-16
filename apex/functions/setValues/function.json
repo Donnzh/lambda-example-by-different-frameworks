@@ -1,0 +1,11 @@
+{
+  "description": "Node.js example function for set value in db",
+  "timeout": 3,
+  "memory": 128,
+	"environment": {},
+	"handler" : "index.handler",
+	"vpc": {
+		"securityGroups" : ["sg-6f806f08" , "sg-af836ec8"],
+		"subnets" : ["subnet-1c6dc36a", "subnet-8e8607ea"]
+	}
+}

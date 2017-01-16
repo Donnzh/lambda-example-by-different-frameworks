@@ -1,0 +1,172 @@
+# Welcome to Serverless!
+#
+# This file is the main config file for your service.
+# It's very minimal at this point and uses default values.
+# You can always add more config options for more control.
+# We've included some commented out config examples here.
+# Just uncomment any of them to get that config option.
+#
+# For full config options, check the docs:
+#    docs.serverless.com
+#
+# Happy Coding!
+frameworkVersion: "=1.5.0"
+
+service: my-service
+
+# You can pin your service to only deploy with a specific Serverless version
+# Check out our docs for more details
+# frameworkVersion: "=X.X.X"
+
+provider:
+  name: aws
+  runtime: nodejs4.3
+  stage: dev
+  region: ap-southeast-2
+  timeout: 10
+  memorySize: 128
+  role: arn:aws:iam::142891325345:role/my-service-dev-ap-southeast-2-lambdaExampleRole
+  cfLogs: true #adding CloudFormation LogGroups
+
+  # custom: ${file(./config.json)} # You can reference the entire file
+  # You can also use an existing IAM role by adding your IAM Role ARN in the role property. For example:
+  # iamRoleStatements: # permissions for all of your functions can be set here
+  #   - Effect: Allow
+  #     Action: # Gives permission to DynamoDB tables in a specific region
+  #       - dynamodb:DescribeTable
+  #       - dynamodb:Query
+  #       - dynamodb:Scan
+  #       - dynamodb:GetItem
+  #       - dynamodb:PutItem
+  #       - dynamodb:UpdateItem
+  #       - dynamodb:DeleteItem
+  #     Resource: "arn:aws:dynamodb:us-east-1:*:*"
+
+# service: new-service
+# provider: aws
+# custom:
+#   myFlexibleArn: ${env:${opt:stage}_arn}
+#
+# functions:
+#   hello:
+#       handler: handler.hello
+# In the above example, if you pass dev as a stage option `serverless deploy --stage dev` ,the framework will look for the dev_arn environment variable. If you pass production, the framework will look for production_arn, and so on.
+
+  # set up different profiles for different accounts
+  # profile: devProfile
+  # use different profiles per stage
+  # load the profile depending upon the stage specified in the command line options (or default to 'dev' if unspecified);
+  #   stage: ${opt:stage, self:custom.defaultStage}
+  #   profile: ${self:custom.profiles.${self:provider.stage}}
+  # custom:
+  #   defaultStage: dev
+  #   profiles:
+  #     dev: devProfile
+  #     prod: prodProfile
+#
+# you can overwrite defaults here
+# you can add statements to the Lambda function's IAM Role here
+#  iamRoleStatements:
+#    - Effect: "Allow"
+#      Action:
+#        - "s3:ListBucket"
+#      Resource: { "Fn::Join" : ["", ["arn:aws:s3:::", { "Ref" : "ServerlessDeploymentBucket" } ] ]  }
+#    - Effect: "Allow"
+#      Action:
+#        - "s3:PutObject"
+#      Resource:
+#        Fn::Join:
+#          - ""
+#          - - "arn:aws:s3:::"
+#            - "Ref" : "ServerlessDeploymentBucket"
+
+# you can define service wide environment variables here
+#  environment:
+#    variable1: value1
+
+# you can add packaging information here
+#package:
+#  include:
+#    - include-me.js
+#    - include-me-dir/**
+#  exclude:
+#    - exclude-me.js
+#    - exclude-me-dir/**
+
+functions:
+  hello:
+    handler: handler.hello # required, handler set in AWS Lambda
+    memorySize: 128
+    timeout: 10 # optional, default is 6
+    role: arn:aws:iam::142891325345:role/firstApex_lambda_function
+    description: a test function for serverless # optional, Description to publish to AWS
+    vpc:
+      securityGroupIds:
+        - sg-af836ec8
+        - sg-6f806f08
+      subnetIds:
+        - subnet-8e8607ea
+        - subnet-1c6dc36a
+
+  setValues:
+    handler: setValues.setValues # required, handler set in AWS Lambda
+    memorySize: 128
+    timeout: 3 # optional, default is 6
+    role: arn:aws:iam::142891325345:role/firstApex_lambda_function
+    description: a test function for serverless to set value in aws RDS # optional, Description to publish to AWS
+    vpc:
+      securityGroupIds:
+        - sg-af836ec8
+        - sg-6f806f08
+      subnetIds:
+        - subnet-8e8607ea
+        - subnet-1c6dc36a
+
+  getValues:
+    handler: getValues.getValues # required, handler set in AWS Lambda
+    memorySize: 128
+    timeout: 3 # optional, default is 6
+    role: arn:aws:iam::142891325345:role/firstApex_lambda_function
+    description: a test function for serverless to get value in aws RDS # optional, Description to publish to AWS
+    vpc:
+      securityGroupIds:
+        - sg-af836ec8
+        - sg-6f806f08
+      subnetIds:
+        - subnet-8e8607ea
+        - subnet-1c6dc36a
+
+    # functions can either inherit their settings from the provider property.
+    # You can add as many functions as you want within this property.
+    # functionTwo:
+    #   handler: handler.functionTwo
+    # functionThree:
+    #   handler: handler.functionThree
+
+#    The following are a few example events you can configure
+#    NOTE: Please make sure to change your handler code to work with those events
+#    Check the event documentation for details
+#    events:
+#      - http:
+#          path: users/create
+#          method: get
+#      - s3: ${env:BUCKET}
+#      - schedule: rate(10 minutes)
+#      - sns: greeter-topic
+#      - stream: arn:aws:dynamodb:region:XXXXXX:table/foo/stream/1970-01-01T00:00:00.000
+
+#    Define function environment variables here
+#    environment:
+#      variable2: value2
+
+# you can add CloudFormation resource templates here
+#resources:
+#  Resources:
+#    NewResource:
+#      Type: AWS::S3::Bucket
+#      Properties:
+#        BucketName: my-new-bucket
+#  Outputs:
+#     NewOutput:
+#       Description: "Description for the output"
+#       Value: "Some output value"

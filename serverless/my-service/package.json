@@ -1,0 +1,22 @@
+{
+  "name": "serverless-lambda-example",
+  "version": "1.0.0",
+  "description": "a demo of using serverless of lambda project",
+  "main": "index.js",
+  "dependencies": {
+    "massive": "^2.5.0",
+    "redis": "^2.6.4",
+    "righto": "^2.2.3"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "aws",
+    "serverless",
+    "lambda",
+    "rds"
+  ],
+  "author": "donnzh",
+  "license": "GPL-3.0"
+}

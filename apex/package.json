@@ -1,0 +1,27 @@
+{
+  "name": "apex-demo",
+  "version": "0.0.0",
+  "description": "demo project for apex",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "erun": "erun "
+  },
+  "erun": {
+    "apex": {
+      "cmd": "node ./apex-command.js",
+      "env": {}
+    }
+  },
+  "keywords": [
+    "aws",
+    "lambda",
+    "apex"
+  ],
+  "author": "donnzh",
+  "license": "GPL-3.0",
+  "devDependencies": {
+    "config": "^1.24.0",
+    "erun": "^0.1.2"
+  }
+}

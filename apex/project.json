@@ -1,0 +1,8 @@
+{
+  "name": "firstApex",
+  "description": "a example of apex",
+  "memory": 128,
+  "timeout": 5,
+  "role": "arn:aws:iam::142891325345:role/firstApex_lambda_function",
+  "environment": {}
+}
