@@ -8,3 +8,4 @@ claudia
 
 **/npm-debug.log
 **/.npmignore
+.DS_Store
