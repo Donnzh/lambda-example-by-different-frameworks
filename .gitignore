@@ -1,12 +1,8 @@
+**/config/
 **/config.js
 node_modules
-../node_modules/**
-**/config/
-
-#claudia version is under working
-claudia
-
 **/npm-debug.log
 **/.npmignore
 .eslintrc.js
 .DS_Store
+**/.serverless/

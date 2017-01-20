@@ -94,20 +94,6 @@ provider:
 #    - exclude-me-dir/**
 
 functions:
-  hello:
-    handler: handler.hello # required, handler set in AWS Lambda
-    memorySize: 128
-    timeout: 10 # optional, default is 6
-    role: arn:aws:iam::142891325345:role/firstApex_lambda_function
-    description: a test function for serverless # optional, Description to publish to AWS
-    vpc:
-      securityGroupIds:
-        - sg-af836ec8
-        - sg-6f806f08
-      subnetIds:
-        - subnet-8e8607ea
-        - subnet-1c6dc36a
-
   setValues:
     handler: setValues.setValues # required, handler set in AWS Lambda
     memorySize: 128

@@ -1,0 +1,7 @@
+{
+  "lambda": {
+    "role": "claudiaSetValue-executor",
+    "name": "claudiaSetValue",
+    "region": "ap-southeast-2"
+  }
+}
