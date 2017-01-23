@@ -73,7 +73,7 @@ exports.handler = function (e, ctx, cb) {
 			// case 'deleteAllDataInPostgres':
 			// 	rightoFunction = deleteVaulePostgres;
 			// 	break;
-			// }
+			}
 			return righto(rightoFunction, e[req]);
 
 		});
