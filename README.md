@@ -1,5 +1,6 @@
-Researching on AWS Lambda, creating similar lambda function by using different frameworks, e.g. Apex, Serverless
+R&D project on AWS Lambda, creating similar lambda function by using different frameworks, e.g. Apex, Serverless
 
+The introduction of Lambda and the comparisons between different frameworks can be also found at this presentation. https://github.com/Donnzh/aws-lambda-presentation2
 
 
 Name | Apex | Serverless      | Cloudia

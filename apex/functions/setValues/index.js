@@ -50,35 +50,23 @@ function setValuePostgres(value, errback){
 	db.saveDoc('mytable', writeValue, errback);
 }
 
-//delete all data from table
-// function deleteVaulePostgres(errback){
-// 	db.run('DELETE FROM mytable', errback);
-// }
 
 exports.handler = function (e, ctx, cb) {
-	console.log('processing event: %j', {
-		e
-	});
+console.log('processing event: %j', {e});
 	if (Object.keys(e).length !== 0 && e.constructor === Object) {
-
-		const rightoFunctions = Object.keys(e).map((req) => {
+		const rightoFunctions = Object.keys(e).map(function (key) {
 			let rightoFunction;
-			switch (req) {
+			switch (key) {
 			case 'valueForRedis':
 				rightoFunction = setValueRedis;
 				break;
 			case 'valueForPostgres':
 				rightoFunction = setValuePostgres;
 				break;
-			// case 'deleteAllDataInPostgres':
-			// 	rightoFunction = deleteVaulePostgres;
-			// 	break;
 			}
-			return righto(rightoFunction, e[req]);
-
+			return righto(rightoFunction, e[key]);
 		});
-		console.log('rightoFunctions', rightoFunctions);
-
+		console.log('rightoFunction',rightoFunction);
 		righto.all(rightoFunctions)(function (err, result) {
 			if (err) {
 				ctx.fail(unsuccessResponse);
@@ -86,7 +74,7 @@ exports.handler = function (e, ctx, cb) {
 			}
 			successResponse.body.result = {};
 			Object.keys(e).forEach((key, idx) => {
-				successResponse.body.result[key + 'Result'] = result[idx];
+				successResponse.body.result[key+'Result'] = result[idx];
 			});
 			ctx.succeed(successResponse);
 		});
