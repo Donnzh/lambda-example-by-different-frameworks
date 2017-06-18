@@ -1,4 +1,4 @@
-R&D project on AWS Lambda, creating similar lambda function by using different frameworks, e.g. Apex, Serverless
+AWS Lambda. Creating similar lambda functions by using different frameworks, e.g. Apex, Serverless
 
 The introduction of Lambda and the comparisons between different frameworks can be also found at this presentation. https://github.com/Donnzh/aws-lambda-presentation2
 
